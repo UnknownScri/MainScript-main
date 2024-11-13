@@ -5072,26 +5072,9 @@ local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigL
             end)
         end
     end)
-    local AttackList = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
-    _G.FastAttackDelay = 0.175  -- Set default as a number
-    
-    Settings:AddDropdown("Select Attack Delay", AttackList, function(value)
-        _G.FastAttackDelay = tonumber(value)  -- Convert selected value to number
-    end)
-    
-    spawn(function()
-        while wait(0.1) do
-            if _G.FastAttackDelay then
-                pcall(function()
-                    -- Use _G.FastAttackDelay directly as it's already a number
-                    -- No need for further if-statements since the value is already converted
-                    print("Current FastAttackDelay:", _G.FastAttackDelay)
-                    -- Your attack delay logic here
-                end)
-            end
-        end
-    end)
-    
+
+    _G.FastAttackDelay = 0.165  -- Set default as a number
+
 
 function GetBladeHit()
     local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
